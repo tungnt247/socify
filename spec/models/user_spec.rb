@@ -3,10 +3,9 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_many(:posts).class_name('Post') }
-    it { should have_many(:followed_users) }
-    it { should have_many(:following_users) }
-    it { should have_many(:followers).through(:following_users) }
-    it { should have_many(:followees).through(:followed_users) }
+    it { should have_many(:friend_sent) }
+    it { should have_many(:friend_request) }
+
   end
 
   describe 'validations' do

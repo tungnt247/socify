@@ -31,10 +31,13 @@ ActiveRecord::Schema.define(version: 2020_04_27_104339) do
   end
 
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followee_id"
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_relationships_on_receiver_id"
+    t.index ["sender_id"], name: "index_relationships_on_sender_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,4 +58,6 @@ ActiveRecord::Schema.define(version: 2020_04_27_104339) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "relationships", "users", column: "receiver_id"
+  add_foreign_key "relationships", "users", column: "sender_id"
 end
