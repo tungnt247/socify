@@ -8,16 +8,14 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'awesome_print', require: false
 gem 'devise'
 gem 'slim-rails'
 
 group :development, :test do
-  gem 'pry', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'
   gem 'faker'
 end
