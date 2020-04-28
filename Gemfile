@@ -30,8 +30,10 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov'
+  gem 'simplecov', require: false
+  gem 'shoulda', '~> 3.5'
   gem 'shoulda-matchers'
+  gem 'rails-controller-testing'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
