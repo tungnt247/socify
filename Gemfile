@@ -13,11 +13,15 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'awesome_print', require: false
 gem 'devise'
 gem 'slim-rails'
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.4.1'
+gem 'font_awesome5_rails'
 
 group :development, :test do
   gem 'pry-rails', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'
   gem 'faker'
+  gem 'dotenv-rails'
 end
 
 group :development do
