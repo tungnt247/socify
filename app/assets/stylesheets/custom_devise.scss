@@ -51,15 +51,22 @@ a {
   z-index: 0;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
-  .register-show{
+  .register-show, .login-show {
     z-index: 1;
     color:#242424;
     text-align:left;
+  }
+
+  .register-show {
     padding: 35px 100px 0px 100px;
-}
+  }
+
+  .login-show {
+    padding: 105px 100px 0px 100px;
+  }
 }
 
-.register-info-box {
+.register-info-box, .login-info-box {
   top: 0;
   right: 0;
   bottom: 0;
@@ -69,7 +76,7 @@ a {
   justify-content: center;
   align-items: center;
 
-  .reg-side-text {
+  .reg-side-text, .login-side-text {
     width: 50%;
     text-align: center;
 

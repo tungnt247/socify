@@ -1,0 +1,18 @@
+.login-reg-panel
+  .login-info-box
+    .login-side-text
+      h2 Do not have account?
+      = link_to new_user_registration_path, class: 'login-btn' do
+        .label-login Register
+  .white-panel
+    .login-show
+      h2.text-center LOG IN
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-group
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+        .form-group
+          = f.label :password
+          = f.password_field :password, autocomplete: "current-password", class: 'form-control'
+        .form-group.text-right
+          = f.button "Log in", class: 'btn btn-info'
