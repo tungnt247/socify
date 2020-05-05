@@ -1,0 +1,13 @@
+nav#sideNav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
+  .navbar-brand
+    = image_tag 'default_avatar.png', class: 'img-fluid img-profile rounded-circle mx-auto mb-2' 
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav
+      li.nav-item
+        = link_to edit_user_registration_path, class: 'nav-link'
+          i.fas.fa-user-circle>
+          = current_user.name
+      li.nav-item
+        = link_to destroy_user_session_path, method: :delete, class: 'nav-link'
+          i.fas.fa-sign-out-alt>
+          | Log out
