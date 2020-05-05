@@ -16,12 +16,14 @@ gem 'slim-rails'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.4.1'
 gem 'font_awesome5_rails'
+gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 4.0.0'
   gem 'faker'
   gem 'dotenv-rails'
+  gem 'factory_bot_rails', require: false
 end
 
 group :development do

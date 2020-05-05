@@ -1,0 +1,5 @@
+- return if object.errors.blank?
+
+.error-messages
+  - object.errors.full_messages.each do |msg|
+    li = msg
