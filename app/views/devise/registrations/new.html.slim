@@ -1,0 +1,30 @@
+.login-reg-panel
+  .register-info-box
+    .reg-side-text
+      h2 Already have account?
+      = link_to new_user_session_path, class: 'login-btn' do
+        .label-login Log in
+  .white-panel
+    .register-show
+      h2.text-center REGISTER
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .form-group
+          = f.label :name
+          = f.text_field :name, autofocus: true, autocomplete: "name", class: 'form-control'
+        .form-group
+          = f.label :email
+          = f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control'
+        .form-group
+          = f.label :password
+          - if @minimum_password_length
+            em
+              | (
+              = @minimum_password_length
+              |  characters minimum)
+          = f.password_field :password, autocomplete: "new-password", class: 'form-control'
+        .form-group
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control'
+        .form-group.text-right
+          = f.button "Sign up", class: 'btn btn-info'

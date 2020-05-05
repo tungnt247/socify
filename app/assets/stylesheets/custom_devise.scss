@@ -1,0 +1,84 @@
+body {
+	height: 100vh;
+  background-image: url('bg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	position: relative;
+  overflow-y: hidden;
+}
+
+a {
+  text-decoration:none;
+  color:#444444;
+}
+
+.login-reg-panel {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+	text-align:center;
+  width:70%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 400px;
+  background-color: #202040;
+  opacity: 0.9;
+  color: #B8B8B8;
+
+  .label-login {
+    border: 1px solid #9E9E9E;
+    padding: 5px 5px;
+    width: 150px;
+    display: block;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 18px;
+  }
+}
+
+.white-panel {
+  background-color: rgba(255,255, 255, 1);
+  height: 490px;
+  position: absolute;
+  top: -50px;
+  width: 50%;
+  right: calc(50% - 50px);
+  transition: .3s ease-in-out;
+  z-index: 0;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+
+  .register-show{
+    z-index: 1;
+    color:#242424;
+    text-align:left;
+    padding: 35px 100px 0px 100px;
+}
+}
+
+.register-info-box {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 45%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .reg-side-text {
+    width: 50%;
+    text-align: center;
+
+    .login-btn {
+      display: inline-block;
+    }
+
+    a:hover {
+      color: #9E9E9E;
+    }
+  }
+}
