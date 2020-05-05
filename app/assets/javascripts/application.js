@@ -3,6 +3,9 @@
 //= require turbolinks
 //= require jquery3
 //= require popper
+//= require bootstrap-sprockets
 //= requrie bootstrap
 //= require font_awesome5
 //= require resume
+//= require preview_image
+//= require change_file_upload

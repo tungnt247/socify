@@ -34,3 +34,6 @@ coverage
 
 # Ignore .env file
 .env
+
+# Ignore uploaded files
+public/uploads

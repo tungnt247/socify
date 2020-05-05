@@ -8,6 +8,10 @@ nav#sideNav.navbar.navbar-expand-lg.navbar-dark.bg-primary.fixed-top
           i.fas.fa-user-circle>
           = current_user.name
       li.nav-item
+        = link_to posts_path, class: 'nav-link'
+          i.far.fa-newspaper>
+          | New Feed
+      li.nav-item
         = link_to destroy_user_session_path, method: :delete, class: 'nav-link'
           i.fas.fa-sign-out-alt>
           | Log out

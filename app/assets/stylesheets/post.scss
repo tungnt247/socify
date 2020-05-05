@@ -1,0 +1,63 @@
+.image-preview {
+  height: 180px;
+  width: 200px;
+}
+
+.post-image {
+  height: 200px;
+  width: 250px;
+}
+
+.custom-file {
+  margin-top: 20px;
+  width: 60%;
+
+  .custom-file-label {
+    overflow: hidden;
+  }
+}
+
+.new-post, .post-list {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.card {
+  font-size: 1em;
+  overflow: hidden;
+  border: none;
+  border-radius: .28571429rem;
+  box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
+  margin: 20px 0px;
+
+  .action {
+    padding: 0px;
+    margin-top: 10px;
+  }
+
+  .post-content {
+    white-space: pre-line;
+    margin-bottom: 0px;
+  }
+}
+
+.new-feed {
+  padding-top: 20px;
+
+  h2 {
+    font-family: 'Courier New', Courier, monospace;
+    color: #BD5D38;
+  }
+}
+
+.error-messages {
+  border: solid orangered;
+  padding: 15px;
+  color: orangered;
+  margin: 5px;
+  margin-bottom: 20px;
+}
+
+.post-detail, .post-edit {
+  margin: 30px;
+}

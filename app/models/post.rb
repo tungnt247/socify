@@ -3,7 +3,9 @@ class Post < ApplicationRecord
   has_many :comments
 
   with_options presence: true do
-    validates :title, length: { maximum: 250 }
+    validates :title, length: { maximum: 250 }, uniqueness: { case_sensitive: false }
     validates :content
   end
+
+  mount_uploader :image, ImageUploader
 end

@@ -1,0 +1,31 @@
+.new-feed.text-center
+  h2 New Feed
+
+.new-post
+  button.btn.btn-outline-success data-target="#new-post-modal" data-toggle="modal" type="button" 
+    i.fas.fa-plus-circle>
+    | New Post
+  = render 'form', post: @post
+
+.post-list
+  - @posts.each do |post|
+    - unless post.new_record?
+      .card
+        .row
+          .col-sm-3
+            = image_tag "#{post_image_url(post.image.thumb.url)}", class: 'd-block post-image'
+          .col-sm-9
+            .row
+              .col-sm-11
+              .col-sm-1.action
+                .row
+                  .col-sm-1.edit-post
+                    = link_to '', data: { target: "#modal-#{post.id}", toggle: 'modal' } do
+                      i.fas.fa-edit
+                    = render 'form_edit', post: post 
+                  .col-sm-1.delete-post
+                    = link_to post_path(post.id), method: :delete, data: { confirm: 'Are you sure?' }, remote: true do
+                      i.fas.fa-trash
+            .card-block
+              h6 = link_to post.title, post_path(post.id) 
+              p.post-content = post.content.truncate(40)

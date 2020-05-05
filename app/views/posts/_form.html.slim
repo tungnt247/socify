@@ -1,0 +1,26 @@
+= form_with model: post, url: posts_path do |f|
+  #new-post-modal.modal.fade aria-hidden='true' role='dialog' tabindex='-1' 
+    .modal-dialog role='document' 
+      .modal-content
+        .modal-header
+          h5.modal-title New post
+          button.close aria-label='Close' data-dismiss='modal' type='button' 
+            span aria-hidden='true' &times;
+        .modal-body
+          .errors
+          .form-group
+            = f.label :title
+            = f.text_field :title, class: 'form-control'
+          .form-group.js-preview-image
+            = f.label '', 'Image'
+            br
+            = image_tag "#{post_image_url(f.object.image_url)}", class: 'js-image image-preview'
+            .custom-file
+              = f.file_field :image, class: 'custom-file-input', onchange: 'previewImage(this); changeFileName(this)'
+              = f.label :image, 'Choose file', class: 'custom-file-label'
+          .form-group
+            = f.label :content
+            = f.text_area :content, class: 'form-control', rows: 4
+        .modal-footer
+          = f.button 'Close', class: 'btn btn-secondary', data: { dismiss: 'modal' }
+          = f.button 'Save changes', class: 'btn btn-primary', type: 'submit'
