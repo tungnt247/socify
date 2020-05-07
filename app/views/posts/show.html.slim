@@ -6,19 +6,33 @@
   hr
   p = l @post.created_at, format: :long
   hr
-  = image_tag "#{post_image_url(@post.image_url)}", class: 'img-fluid rounded'
+  = image_tag "#{post_image_url(@post.image_url)}" 
   hr
   p.lead = @post.content
   hr
   .card.my-4
     h5.card-header Leave a Comment:
     .card-body
-      form
-        .form-group                             
-          textarea.form-control rows="3" 
-        button.btn.btn-primary type="submit"  Submit
-  .media.mb-4
-    img.d-flex.mr-3.rounded-circle alt="" src="http://placehold.it/50x50" 
-    .media-body
-      h5.mt-0 Commenter Name
-      | comment text
+      = form_with model: @comment, url: post_comments_path(post_id: @post.id) do |f|
+        .form-group
+          = f.text_area :content, rows: '3', class: 'form-control'                            
+        = f.button 'Submit', class: 'btn btn-primary', type: 'submit'
+  - @comments.each do |comment|  
+    .media.mb-4.comment-detail
+      img.d-flex.mr-3.rounded-circle alt="" src="http://placehold.it/50x50" 
+      .media-body.row
+        .col-sm-8
+          h5.mt-0 = comment.user.name
+          = comment.content
+        .col-sm-4.row
+          .col-sm-8.created-comment-time
+            = l comment.created_at, format: :long
+          .action.row
+            .col-sm-1
+              = link_to '', data: { target: "#modal-#{comment.id}", toggle: 'modal' } do
+                i.fas.fa-edit
+              = render 'form_edit_comment', post_id: @post.id, comment: comment 
+            .col-sm-1
+              = link_to post_comment_path(post_id: @post.id, id: comment.id), method: :delete,
+                data: { confirm: 'Are you sure?' }, remote: true do
+                i.fas.fa-trash

@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     it { should have_many(:posts).class_name('Post') }
     it { should have_many(:friend_sent) }
     it { should have_many(:friend_request) }
-
+    it { should have_many(:comments) }
   end
 
   describe 'validations' do

@@ -1,0 +1,13 @@
+= form_with model: comment, url: post_comment_path(post_id: post_id, id: comment.id), method: :patch do |f|
+  div(class='modal fade' aria-hidden='true' role='dialog' tabindex='-1' id="modal-#{comment.id}")
+    .modal-dialog.modal-dialog-centered role="document" 
+      .modal-content
+        .modal-header
+          h5#exampleModalLongTitle.modal-title Edit comment
+          button.close aria-label="Close" data-dismiss="modal" type="button" 
+            span aria-hidden="true"  &times;
+        .modal-body
+          = f.text_area :content, rows: 4, cols: 50
+        .modal-footer
+          = f.button 'Close', data: { dismiss: 'modal' }, class: 'btn btn-secondary'
+          = f.button 'Save changes', class: 'btn btn-primary', type: 'submit'
