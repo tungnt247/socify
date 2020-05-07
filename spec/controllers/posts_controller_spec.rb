@@ -49,7 +49,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     context 'with invalid attributes' do
-      it 'does not save the new contact' do
+      it 'does not save the new post' do
         expect {
           post :create, params: { post: FactoryBot.attributes_for(:invalid_post) }, format: 'js'
         }.to_not change(Post, :count)

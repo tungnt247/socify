@@ -61,3 +61,17 @@
 .post-detail, .post-edit {
   margin: 30px;
 }
+
+.post-detail {
+  .comment-detail {
+    .action {
+      padding-left: 35px;
+      padding-right: 0px;
+    }
+
+    .created-comment-time {
+      padding-left: 45px;
+      padding-right: 0px;
+    }
+  }
+}

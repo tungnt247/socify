@@ -6,7 +6,10 @@ class PostsController < ApplicationController
     @posts = current_user.posts.order(created_at: :desc)
   end
 
-  def show; end
+  def show
+    @comments = @post.comments.order(created_at: :desc)
+    @comment = current_user.comments.build(post_id: @post.id)
+  end
 
   def create
     @post = current_user.posts.build post_params
