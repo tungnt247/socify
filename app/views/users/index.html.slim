@@ -1,0 +1,13 @@
+.text-center
+  h2 User List
+
+.user-list
+  - @users.each do |user|
+    .card.user-detail-card
+      .row
+        .col-sm-3
+          = image_tag 'https://via.placeholder.com/150', class: 'd-block post-image'
+        .col-sm-9.user-detail-content
+          .card-block
+            h6 = link_to user.name, user_path(user.id) 
+            p.post-content = user.email

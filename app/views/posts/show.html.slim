@@ -17,9 +17,9 @@
         .form-group
           = f.text_area :content, rows: '3', class: 'form-control'                            
         = f.button 'Submit', class: 'btn btn-primary', type: 'submit'
-  - @comments.each do |comment|  
+  - @comments.each do |comment|
     .media.mb-4.comment-detail
-      img.d-flex.mr-3.rounded-circle alt="" src="http://placehold.it/50x50" 
+      img.d-flex.mr-3.rounded-circle alt="" src="http://placehold.it/50x50"
       .media-body.row
         .col-sm-8
           h5.mt-0 = comment.user.name

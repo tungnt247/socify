@@ -23,12 +23,12 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'PATCH #update' do
-    before(:each) { @comment = create(:comment, post: @post) }
+    before(:each) { @comment = create(:comment, post: @post, user: subject.current_user) }
 
     context 'valid attributes' do
       it 'should update @comment attributes' do
         patch :update, params: { post_id: @post.id, id: @comment.id,
-          comment: FactoryBot.attributes_for(:comment, content: 'updated content', post: @post) }
+          comment: FactoryBot.attributes_for(:comment, content: 'updated content') }
         @comment.reload
         @comment.content.should eq('updated content')
       end
@@ -41,7 +41,7 @@ RSpec.describe CommentsController, type: :controller do
     context 'invalid attributes' do
       it 'should not update @comment attributes' do
         patch :update, params: { post_id: @post.id, id: @comment.id,
-          comment: FactoryBot.attributes_for(:comment, content: nil, post: @post) }
+          comment: FactoryBot.attributes_for(:comment, content: nil) }
         @comment.reload
         @comment.content.should_not eq('updated content')
       end
@@ -53,7 +53,7 @@ RSpec.describe CommentsController, type: :controller do
   end
 
   describe 'DELETE #delete' do
-    before(:each) { @comment = create(:comment, post: @post) }
+    before(:each) { @comment = create(:comment, post: @post, user: subject.current_user) }
 
     it 'should delete @comment' do
       expect{

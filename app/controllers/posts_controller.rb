@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @post = current_user.posts.build
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = current_user.friend_and_own_posts
   end
 
   def show
