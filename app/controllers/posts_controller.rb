@@ -3,10 +3,13 @@ class PostsController < ApplicationController
 
   def index
     @post = current_user.posts.build
-    @posts = current_user.posts.order(created_at: :desc)
+    @posts = current_user.friend_and_own_posts
   end
 
-  def show; end
+  def show
+    @comments = @post.comments.order(created_at: :desc)
+    @comment = current_user.comments.build(post_id: @post.id)
+  end
 
   def create
     @post = current_user.posts.build post_params
