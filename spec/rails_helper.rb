@@ -8,6 +8,11 @@ require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'simplecov'
 SimpleCov.start
+
+require 'shoulda/matchers'
+require 'factory_bot_rails'
+require 'devise'
+require_relative 'support/controller_macros'
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -17,7 +22,7 @@ SimpleCov.start
 # option on the command line or in ~/.rspec, .rspec or `.rspec-local`.
 #
 # The following line is provided for convenience purposes. It has the downside
-# of increasing the boot-up time by auto-requiring all files in the support
+# of increasing the boot-up time by auto-requiring all files in the support\
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
@@ -62,11 +67,30 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  config.include FactoryBot::Syntax::Methods
+
+  # config for using devise helper methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.extend ControllerMacros, type: :controller
+
+  [:controller, :view, :request].each do |type|
+    config.include ::Rails::Controller::Testing::TestProcess, :type => type
+    config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
+    config.include ::Rails::Controller::Testing::Integration, :type => type
+  end
+
+  config.expect_with :rspec do |expectations|
+    expectations.syntax = %i[should expect]
+  end
 end
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :rspec
+
     with.library :rails
+    with.library :action_controller
+    with.library :active_record
+    with.library :active_model
   end
 end
