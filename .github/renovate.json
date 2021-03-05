@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "packageRules": [
+    { "updateTypes": ["major"], "addLabels": ["SemVer Major"] },
+    { "updateTypes": ["minor"], "addLabels": ["SemVer Minor"] },
+    { "updateTypes": ["patch", "digest", "bump"], "addLabels": ["SemVer Patch"] },
+    { "languages": ["js"], "addLabels": ["JS"] },
+    { "languages": ["ruby"], "addLabels": ["Ruby"] }
+  ]
+}
