@@ -14,7 +14,7 @@ gem 'awesome_print', require: false
 gem 'devise'
 gem 'slim-rails'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 4.4.1'
+gem 'bootstrap', '~> 4.6.0'
 gem 'font_awesome5_rails'
 gem 'carrierwave'
 
