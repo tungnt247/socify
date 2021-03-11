@@ -26,6 +26,7 @@ class PostsController < ApplicationController
   end
 
   def update
+    binding.pry
     respond_to do |format|
       if @post.update_attributes post_params
         format.js do
