@@ -27,6 +27,13 @@ group :development, :test do
 end
 
 group :development do
+  # For deploy
+  gem "capistrano", "~> 3.16", require: false
+  gem 'capistrano-puma', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.4.2'
   gem 'spring'
