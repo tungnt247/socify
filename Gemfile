@@ -5,7 +5,7 @@ ruby '2.6.3'
 
 gem 'rails', '~> 6.1.0'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 5.0'
 gem 'sass-rails', '~> 6.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'turbolinks', '~> 5'
