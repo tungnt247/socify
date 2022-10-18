@@ -20,7 +20,7 @@ gem 'carrierwave'
 
 group :development, :test do
   gem 'pry-rails', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 5.0.0'
+  gem 'rspec-rails', '~> 6.0.1'
   gem 'faker'
   gem 'dotenv-rails'
   gem 'factory_bot_rails', require: false
